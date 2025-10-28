@@ -5,11 +5,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WDD 231 | Luca Carlo</title>
-    <link rel="stylesheet" href="styles/normalize.css">
+    <meta name="description" content="WDD 231 Website">
+    <meta name="author" content="Luca Carlo">
+    <link rel="stylesheet" href="styles/small.css">
+    <link rel="stylesheet" href="styles/larger.css">
+    <script src="scripts/navigation.js" defer></script>
+    <script src="scripts/date.js" defer></script>
+    <script src="scripts/course.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
-
+    <header>
+        <img src="images/home.svg" alt="Website Logo">
+        <span>Luca Carlo</span>
+        <button id="ham-button" aria-label="menu-button"></button>
+    </header>
+    <nav id="nav-bar">
+        <ul>
+            <li class="current"><a href="">Home</a></li>
+            <li><a href="">Chamber Project</a></li>
+            <li><a href="">Final Project</a></li>
+        </ul>
+    </nav>
+    <main>
+        <h1>Home</h1>
+        <section id="about-me">
+            <h2>About Me</h2>
+            <p>I'm Luca Carlo, born in 1989, husband and father of four wonderful children, two girls and two boys. My
+                passion for computers started when I was six years old and got my first PC running Windows 95. Since
+                then, I've always loved exploring both hardware and software, gradually focusing more on systems,
+                programs, and everything computers can do.
+                Over the past ten years, I've been creating websites and dedicating myself more deeply to both web and
+                software development. I’m constantly learning, driven by curiosity and a genuine love for technology,
+                and that’s something I don’t think will ever change.</p>
+        </section>
+        <section id="student-photo">
+            <h2>Student Photo</h2>
+            <img src="images/profile.webp" alt="Profile Picture">
+        </section>
+        <section id="courses">
+            <h2>Web Certificate Courses</h2>
+            <div id="course-buttons">
+                <button id="all-button">All</button>
+                <button id="cse-button">CSE</button>
+                <button id="wdd-button">WDD</button>
+            </div>
+            <div>
+                <ul id="course-list">
+                </ul>
+                <p>The total credits for course listed above is <span id="credits"></spanid>
+                </p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="social-icons">
+            <a href="https://linkedin.com/in/luca-carlo"><img src="images/linkedin.svg" alt="LinkedIn Social Link"
+                    width="32" height="32"></a>
+            <a href="https://github.com/lcarlo23"><img src="images/github.svg" alt="GitHub Social Link" width="32"
+                    height="32"></a>
+            <a href="https://www.facebook.com/luca.carlo.23"><img src="images/twitter-x.svg" alt="Twitter X Social Link"
+                    width="32" height="32"></a>
+        </div>
+        <div id="copyright">
+            <p>© <span id="current-year"></span> | Luca Carlo | Italy</p>
+            <p>Last Modification: <span id="last-modified"></span></p>
+        </div>
+    </footer>
 </body>
 
 </html>
