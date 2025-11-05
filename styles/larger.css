@@ -1,4 +1,13 @@
 @media screen and (min-width: 800px) {
+    #ham-button {
+        display: none;
+    }
+
+    #nav-bar {
+        display: flex;
+        background-color: var(--primary-color);
+    }
+
     nav ul {
         display: flex;
         border-bottom: 2px solid black;
