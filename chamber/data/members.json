@@ -55,6 +55,14 @@
             "website": "https://www.aeneas.it/",
             "logo": "https://www.aeneas.it/imgs/logo.png",
             "level": 1
+        },
+        {
+            "name": "Radici Chimica Spa",
+            "address": "Via Giuseppe Verdi, 11, 24121 Bergamo BG, Italy",
+            "phone": "+39 035 6428765",
+            "website": "https://www.radicigroup.com/it",
+            "logo": "https://www.radicigroup.com/Images/logo.svg",
+            "level": 3
         }
     ]
 }
