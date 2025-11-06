@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bergamo Chamber of Commerce</title>
+    <meta name="description" content="Homepage of Bergamo Chamber of Commerce">
+    <meta name="author" content="Luca Carlo">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <meta property="og:title" content="Bergamo Chamber of Commerce">
+    <meta property="og:description" content="Discover Bergamo Chamber of Commerce">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="https://lcarlo23.github.io/wdd231/chamber/">
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/large.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <script src="scripts/navigation.js" defer></script>
+    <script src="scripts/members.js" defer></script>
+    <script src="scripts/getdates.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <img src="images/Bergamo.svg" alt="Bergamo Logo" width="50" height="50">
+        <h2>Bergamo Chamber of Commerce</h2>
+        <div id="header-buttons">
+            <button id="contrast-button">◐</button>
+            <button id="ham-button" aria-label="menu hamburger button"></button>
+        </div>
+        <nav id="nav-bar">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="directory.html" class="active">Directory</a></li>
+                <li><a href="#">Join</a></li>
+                <li><a href="#">Discover</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Directory</h1>
+        <div id="view-buttons">
+            <button id="grid-button" class="active"><img src="images/grid.svg" alt="grid view icon"></button>
+            <button id="list-button"><img src="images/list.svg" alt="list view icon"></button>
+        </div>
+        <section id="members"></section>
+    </main>
+    <footer>
+        <section id="info-box">
+            <p>Bergamo Chamber of Commerce</p>
+            <p>Largo Belotti, 16</p>
+            <p>Bergamo, 24121 Italy</p>
+            <p><a href="mailto:cciaa.bergamo@bg.legalmail.camcom.it">cciaa.bergamo@bg.legalmail.camcom.it</a></p>
+            <p><a href="tel:+390354225111">(+39) 035 4225 111</a></p>
+        </section>
+        <section id="social">
+            <a href="http://www.youtube.com/user/CCIAADIBERGAMO"><img src="images/youtube_icon.svg"
+                    alt="Bergamo Chamber of Commerce Youtube Channel" width="50" height="50" loading="lazy"></a>
+            <a href="https://x.com/cciaabg"><img src="images/twitter_icon.svg"
+                    alt="Bergamo Chamber of Commerce Twitter/X Profile" width="50" height="50" loading="lazy"></a>
+            <a href="https://www.linkedin.com/company/cciaa-bergamo"><img src="images/linkedin_icon.svg"
+                    alt="Bergamo Chamber of Commerce LinkedIn Profile" width="50" height="50" loading="lazy"></a>
+        </section>
+        <section id="copyright">
+            <p>WDD231 Class Project</p>
+            <p>Luca Carlo</p>
+            <p>© <span id="current-year"></span> Bergamo Chamber of Commerce</p>
+            <p>Last Modification: <span id="last-modified"></span></p>
+        </section>
+
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+{
+    "members": [
+        {
+            "name": "Brembo S.p.A.",
+            "address": "Via Brembo, 25, 24035 Curno (BG), Italy",
+            "phone": "+39 035 605111",
+            "website": "https://www.brembo.com/",
+            "logo": "https://upload.wikimedia.org/wikipedia/commons/8/82/Brembo_logo_%282022%29.svg",
+            "level": 3
+        },
+        {
+            "name": "Dalmine S.p.A. (Tenaris Dalmine)",
+            "address": "Piazza Caduti 6 luglio 1944, 1, 24044 Dalmine (BG), Italy",
+            "phone": "+39 035 560111",
+            "website": "https://www.tenaris.com/en",
+            "logo": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Tenaris_Logo.svg",
+            "level": 2
+        },
+        {
+            "name": "Orobix Srl",
+            "address": "Via Gabriele Camozzi, 144, 24121 Bergamo (BG), Italy",
+            "phone": "+39 035 0170561",
+            "website": "https://orobix.com/",
+            "logo": "https://detectiv.orobix.com/wp/wp-content/uploads/2023/03/OROBIX-logo.png",
+            "level": 3
+        },
+        {
+            "name": "Almaware Srl",
+            "address": "Via Gabriele Camozzi, 111, 24121 Bergamo (BG), Italy",
+            "phone": "+39 035 0666899",
+            "website": "https://almaware.net/",
+            "logo": "https://almaware.net/wp-content/themes/almaware2020/dist/images/logo_almaware.png",
+            "level": 1
+        },
+        {
+            "name": "Exaudi.it S.r.l.",
+            "address": "Via Lorenzo Sibellini, 47, 24060 Gorlago (BG), Italy",
+            "phone": "+39 02 80887811",
+            "website": "https://www.exaudi.it/",
+            "logo": "https://www.exaudi.it/wp-content/uploads/2024/05/Exaudi-Logo.svg",
+            "level": 2
+        },
+        {
+            "name": "Spazio Prada S.r.l.",
+            "address": "Via Sant’Elisabetta, 3, 24121 Bergamo (BG), Italy",
+            "phone": "+39 340 3056178",
+            "website": "https://www.spazioprada.com/",
+            "logo": "https://www.spazioprada.com/wp-content/uploads/2021/07/lpp2.png",
+            "level": 1
+        },
+        {
+            "name": "Aeneas S.r.l.",
+            "address": "Corso Giuseppe Garibaldi, 33, 33170 Pordenone (PN), Italy",
+            "phone": "+39 0434 21470",
+            "website": "https://www.aeneas.it/",
+            "logo": "https://www.aeneas.it/imgs/logo.png",
+            "level": 1
+        }
+    ]
+}

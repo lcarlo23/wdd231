@@ -1,0 +1,58 @@
+@media screen and (min-width: 800px) {
+
+    /* Header styling */
+
+    header {
+        grid-template-columns: 50px auto auto 44px;
+    }
+
+    nav {
+        display: flex;
+        grid-area: 1 / 3 / 2 / 4;
+        justify-content: flex-end;
+    }
+
+    #header-buttons {
+        grid-area: 1 / 4 / 2 / 5;
+    }
+
+    #ham-button {
+        display: none;
+    }
+
+    /* Main styling */
+
+    #members {
+        flex-direction: row;
+    }
+
+    .card {
+        max-width: 20rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        box-shadow: 0 0 20px 0 lightgray;
+        padding: 2rem;
+        border-radius: 5px;
+    }
+
+    #members {
+        flex-direction: row;
+    }
+
+    #members th,
+    #members td {
+        display: table-cell;
+        width: 20%;
+    }
+
+    /* Footer styling */
+
+    footer {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+}
