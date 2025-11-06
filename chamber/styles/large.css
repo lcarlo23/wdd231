@@ -22,24 +22,8 @@
 
     /* Main styling */
 
-    #members {
-        flex-direction: row;
-    }
-
-    .card {
-        max-width: 20rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 0.5rem;
-        box-shadow: 0 0 20px 0 lightgray;
-        padding: 2rem;
-        border-radius: 5px;
-    }
-
-    #members {
-        flex-direction: row;
+    #members table {
+        max-width: none;
     }
 
     #members th,

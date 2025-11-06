@@ -7,7 +7,7 @@ function displayMembersGrid(members) {
     for (const member of members) {
         const card = document.createElement('article');
         const logo = document.createElement('img');
-        const name = document.createElement('p');
+        const name = document.createElement('h3');
         const address = document.createElement('p');
         const phone = document.createElement('a');
         const website = document.createElement('a');
@@ -48,24 +48,11 @@ function displayMembersGrid(members) {
 function displayMembersList(members) {
     const table = document.createElement('table');
     const tbody = document.createElement('tbody');
-    const colgroup = document.createElement('colgroup');
-    const col1 = document.createElement('col');
-    const col2 = document.createElement('col');
-    const col3 = document.createElement('col');
-    const col4 = document.createElement('col');
-    const col5 = document.createElement('col');
-
-    colgroup.appendChild(col1);
-    colgroup.appendChild(col2);
-    colgroup.appendChild(col3);
-    colgroup.appendChild(col4);
-    colgroup.appendChild(col5);
-
-    table.appendChild(colgroup);
 
     for (const member of members) {
         const row = document.createElement('tr');
-        const name = document.createElement('th');
+        const nameCell = document.createElement('th');
+        const name = document.createElement('p');
         const addressCell = document.createElement('td');
         const address = document.createElement('p');
         const phoneCell = document.createElement('td');
@@ -90,12 +77,13 @@ function displayMembersList(members) {
         level.textContent = member.level;
 
         membership.appendChild(level);
+        nameCell.appendChild(name);
         addressCell.appendChild(address);
         phoneCell.appendChild(phone);
         websiteCell.appendChild(website);
         membershipCell.appendChild(membership);
 
-        row.appendChild(name);
+        row.appendChild(nameCell);
         row.appendChild(addressCell);
         row.appendChild(phoneCell);
         row.appendChild(websiteCell);
