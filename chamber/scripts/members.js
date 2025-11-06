@@ -7,7 +7,7 @@ function displayMembersGrid(members) {
     for (const member of members) {
         const card = document.createElement('article');
         const logo = document.createElement('img');
-        const name = document.createElement('h3');
+        const name = document.createElement('p');
         const address = document.createElement('p');
         const phone = document.createElement('a');
         const website = document.createElement('a');
