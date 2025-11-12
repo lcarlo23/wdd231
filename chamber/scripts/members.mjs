@@ -95,33 +95,31 @@ function displayMembersList(members) {
     }
 }
 
-async function getMembers() {
+export default async function getMembers() {
     const response = await fetch(url);
     const data = await response.json();
 
     gridButton.classList.contains('active') ?
         displayMembersGrid(data.members) :
         displayMembersList(data.members);
+
+    gridButton.addEventListener('click', () => {
+        if (!gridButton.classList.contains('active')) {
+            gridButton.classList.add('active');
+            listButton.classList.remove('active');
+
+            membersSection.textContent = '';
+            getMembers();
+        }
+    })
+
+    listButton.addEventListener('click', () => {
+        if (!listButton.classList.contains('active')) {
+            listButton.classList.add('active');
+            gridButton.classList.remove('active');
+
+            membersSection.textContent = '';
+            getMembers();
+        }
+    })
 }
-
-getMembers();
-
-gridButton.addEventListener('click', () => {
-    if (!gridButton.classList.contains('active')) {
-        gridButton.classList.add('active');
-        listButton.classList.remove('active');
-
-        membersSection.textContent = '';
-        getMembers();
-    }
-})
-
-listButton.addEventListener('click', () => {
-    if (!listButton.classList.contains('active')) {
-        listButton.classList.add('active');
-        gridButton.classList.remove('active');
-
-        membersSection.textContent = '';
-        getMembers();
-    }
-})

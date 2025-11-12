@@ -20,7 +20,17 @@
         display: none;
     }
 
-    /* Main styling */
+    /* Home styling */
+
+    .home-box {
+        flex: 1;
+    }
+
+    #events {
+        flex: 2;
+    }
+
+    /* Directory styling */
 
     #members table {
         max-width: none;

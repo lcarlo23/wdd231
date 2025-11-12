@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Directory - Bergamo Chamber of Commerce</title>
+    <title>Homepage - Bergamo Chamber of Commerce</title>
     <meta name="description"
-        content="Directory page of the Bergamo Chamber of Commerce website to show members of the chamber">
+        content="Homepage of the Bergamo Chamber of Commerce website, discover events and members of the chamber">
     <meta name="author" content="Luca Carlo">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <meta property="og:title" content="Bergamo Chamber of Commerce website Directory page">
+    <meta property="og:title" content="Bergamo Chamber of Commerce website Home page">
     <meta property="og:description"
-        content="Discover all the Bergamo Chamber of Commerce members in our directory page">
+        content="Discover all the Bergamo Chamber of Commerce members and events in our home page">
     <meta property="og:image" content="https://lcarlo23.github.io/wdd231/chamber/images/bergamo.svg">
     <meta property="og:url" content="https://lcarlo23.github.io/wdd231/chamber/">
     <link rel="stylesheet" href="styles/normalize.css">
@@ -21,7 +21,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
-    <script type="module" src="scripts/directory.mjs"></script>
+    <script type="module" src="scripts/home.mjs"></script>
 </head>
 
 <body>
@@ -34,20 +34,49 @@
         </div>
         <nav id="nav-bar">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="directory.html" class="active">Directory</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="directory.html">Directory</a></li>
                 <li><a href="#">Join</a></li>
                 <li><a href="#">Discover</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <h1>Directory</h1>
-        <div id="view-buttons">
-            <button id="grid-button" class="active"><img src="images/grid.svg" alt="grid view icon"></button>
-            <button id="list-button"><img src="images/list.svg" alt="list view icon"></button>
-        </div>
-        <section id="members"></section>
+        <section id="hero">
+            <img src="images/bergamo-hero.webp" id="hero-background" alt="Bergamo Hero image">
+            <a href="join.html" id="join-button">JOIN NOW!</a>
+        </section>
+        <h1>Home</h1>
+        <section id="info-boxes">
+            <article id="events" class="home-box">
+                <h2>Events</h2>
+                <div class="box-content"></div>
+            </article>
+            <article class="home-box">
+                <h2>Current Weather</h2>
+                <div id="weather" class="box-content">
+                    <img src="#" alt="#" id="weather-icon" width="50" height="50">
+                    <div id="weather-info">
+                        <p id="temp"></p>
+                        <p id="description"></p>
+                        <p id="high"></p>
+                        <p id="low"></p>
+                        <p id="humidity"></p>
+                        <p id="sunrise"></p>
+                        <p id="sunset"></p>
+                    </div>
+                </div>
+            </article>
+            <article class="home-box">
+                <h2>Weather Forecast</h2>
+                <div class="box-content">
+                    <p id="today"></p>
+                    <p id="tomorrow"></p>
+                    <p id="aftertomorrow"></p>
+                </div>
+            </article>
+        </section>
+        <section id="company-spotlights"></section>
     </main>
     <footer>
         <section id="info-box">
