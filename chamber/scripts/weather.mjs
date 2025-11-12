@@ -1,4 +1,4 @@
-const weatherIcon = document.getElementById('weather-icon');
+const weather = document.getElementById('weather');
 const temp = document.getElementById('temp');
 const description = document.getElementById('description');
 const high = document.getElementById('high');
@@ -46,8 +46,13 @@ export default async function apiFetch() {
 }
 
 function displayResults(data) {
+    const weatherIcon = document.createElement('img');
+
     weatherIcon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
     weatherIcon.alt = `${data.weather[0].description} icon`;
+    weatherIcon.width = 50;
+    weatherIcon.lenght = 50;
+
     temp.textContent = `${data.main.temp}° C`;
     description.textContent = data.weather[0].description;
     high.textContent = `High: ${data.main.temp_max}° C`;
@@ -59,6 +64,8 @@ function displayResults(data) {
 
     sunrise.textContent = `Sunrise: ${sunriseTime}am`;
     sunset.textContent = `Sunset: ${sunsetTime}pm`;
+
+    weather.prepend(weatherIcon);
 }
 
 function displayForecastResults(data) {

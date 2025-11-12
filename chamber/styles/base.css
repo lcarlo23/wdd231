@@ -171,8 +171,9 @@ main>h1 {
     gap: 1rem;
 }
 
-#weather-icon {
+#weather img {
     filter: drop-shadow(0 0 2px #808080);
+    align-self: flex-start;
 }
 
 #temp {
