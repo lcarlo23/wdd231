@@ -163,6 +163,7 @@ section img {
     color: white;
     padding: 0.25rem;
     border: 1px solid black;
+    cursor: pointer;
 }
 
 #course-list li.completed {
@@ -175,6 +176,42 @@ section img {
 
 #course-list+p {
     padding: 0.5rem;
+}
+
+dialog {
+    top: 1rem;
+    margin: 0 auto;
+    border: none;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 20px black;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+dialog p,
+dialog h3 {
+    padding: 0.5rem 0;
+}
+
+#title-bar {
+    position: relative;
+}
+
+dialog button {
+    position: absolute;
+    top: calc(50% - 0.75rem);
+    right: 0.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 1.25rem;
+    line-height: 1.25rem;
+    cursor: pointer;
+}
+
+::backdrop {
+    backdrop-filter: blur(0.25rem);
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 /* FOOTER */

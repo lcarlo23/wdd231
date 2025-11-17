@@ -37,4 +37,9 @@
     #course-list li {
         flex: 1 30%;
     }
+
+    dialog {
+        top: 10rem;
+        max-width: 800px;
+    }
 }

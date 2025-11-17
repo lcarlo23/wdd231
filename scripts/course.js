@@ -89,19 +89,21 @@ function getCourses(subject = "") {
 
     const filteredCourses = courses.filter((course) => subject === "" || course.subject === subject);
 
-    for (const course of filteredCourses) {
+    courses.forEach((course, index) => {
         const li = document.createElement('li');
 
-        li.innerText = `${course.subject} ${course.number}`;
+        li.dataset.index = index;
+
+        li.textContent = `${course.subject} ${course.number}`;
 
         if (course.completed) {
             li.classList.add('completed');
         }
 
         courseList.appendChild(li);
-    }
+    });
 
-    credits.innerText = filteredCourses.reduce((accumulator, course) => accumulator + course.credits, 0);
+    credits.textContent = filteredCourses.reduce((accumulator, course) => accumulator + course.credits, 0);
 };
 
 getCourses();
@@ -109,3 +111,31 @@ getCourses();
 allButton.addEventListener('click', () => getCourses());
 cseButton.addEventListener('click', () => getCourses("CSE"));
 wddButton.addEventListener('click', () => getCourses("WDD"));
+
+const modal = document.getElementById('course-details');
+const courseDiv = document.getElementById('course-list');
+
+function displayCourseModal(course) {
+    modal.innerHTML = '';
+    modal.innerHTML = `
+    <section id="title-bar">    
+        <h2>${course.subject} ${course.number}</h2>
+        <button id="closeBtn">×</button>
+    </section>
+    <h3>${course.title}</h3>
+    <p>${course.credits} credits</p>
+    <p>Certificate: ${course.certificate}</p>
+    <p>${course.description}</p>
+    <p>Technology: ${course.technology.join(', ')}</p>
+  `;
+    modal.showModal();
+
+    closeBtn.addEventListener("click", () => {
+        modal.close();
+    });
+}
+
+courseDiv.addEventListener('click', e => {
+    const index = e.target.dataset.index;
+    displayCourseModal(courses[index]);
+})
