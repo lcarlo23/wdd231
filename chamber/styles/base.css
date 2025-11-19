@@ -428,7 +428,7 @@ dialog::backdrop {
 }
 
 #silver-card:hover {
-    background-color: silver;
+    background-color: #c0c0c0;
 }
 
 #gold-card {
@@ -436,7 +436,7 @@ dialog::backdrop {
 }
 
 #gold-card:hover {
-    background-color: gold;
+    background-color: #ffd700;
 }
 
 .form-info {
@@ -495,11 +495,5 @@ footer p {
 @keyframes slideIn {
     from {
         transform: translate(-2rem);
-    }
-}
-
-@keyframes goldBG {
-    to {
-        background-color: gold;
     }
 }
