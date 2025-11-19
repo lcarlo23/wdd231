@@ -123,8 +123,7 @@ main>h1 {
 }
 
 #join-button,
-.link-button,
-input[type='submit'] {
+.link-button {
     border: none;
     border-radius: 0.25rem;
     background-color: var(--secondary-color);
@@ -398,7 +397,7 @@ textarea {
     max-height: 90vh;
 }
 
-::backdrop {
+dialog::backdrop {
     backdrop-filter: blur(0.25rem);
     background-color: rgba(0, 0, 0, 0.5);
 }
