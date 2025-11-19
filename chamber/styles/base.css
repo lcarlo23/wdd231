@@ -122,17 +122,23 @@ main>h1 {
     height: 100%;
 }
 
-#join-button {
-    position: absolute;
-    bottom: 1rem;
-    right: 1rem;
+#join-button,
+.link-button,
+input[type='submit'] {
     border: none;
     border-radius: 0.25rem;
     background-color: var(--secondary-color);
     color: var(--background-color);
     padding: 0.5rem 1rem;
-    box-shadow: 0 0 1rem 0 #000;
+    box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.5);
     font-weight: 900;
+    cursor: pointer;
+}
+
+#join-button {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
 }
 
 #info-boxes {
@@ -309,6 +315,150 @@ main>h1 {
     background-color: var(--background-color);
 }
 
+/* Join page styling */
+
+#join-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+
+}
+
+.container {
+    padding: 1rem;
+}
+
+form,
+#thankyou {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 0 auto;
+    min-width: 15rem;
+    max-width: 40rem;
+    padding: 2rem 1rem;
+    width: 100%;
+    box-shadow: 0 0 20px 0 #d3d3d3;
+    border-radius: 0.25rem;
+    background-color: var(--background-color);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    margin: 1rem 0;
+    width: 100%;
+}
+
+label {
+    width: 100%;
+}
+
+input:not([type='radio']),
+textarea {
+    margin-top: 0.5rem;
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+}
+
+#membership-levels {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+    margin: 2rem;
+}
+
+#membership-levels .card {
+    width: 100%;
+    gap: 1rem;
+    animation-name: fadeIn, slideIn;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: backwards;
+    transition: background-color 0.25s ease-in-out;
+}
+
+#membership-levels dialog[open] {
+    top: 5vh;
+    margin: 0 auto;
+    border: none;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-height: 90vh;
+}
+
+::backdrop {
+    backdrop-filter: blur(0.25rem);
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#membership-levels dialog ul {
+    padding: 0 1rem;
+}
+
+#membership-levels dialog li {
+    text-align: left;
+}
+
+#np-card {
+
+    animation-delay: 0.25s;
+}
+
+#bronze-card {
+    animation-delay: 0.5s;
+}
+
+#bronze-card:hover {
+    background-color: #CD7F32;
+}
+
+#silver-card {
+    animation-delay: 0.75s;
+}
+
+#silver-card:hover {
+    background-color: silver;
+}
+
+#gold-card {
+    animation-delay: 1s;
+}
+
+#gold-card:hover {
+    background-color: gold;
+}
+
+.form-info {
+    font-weight: 700;
+}
+
+.close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2.5rem;
+    width: 1rem;
+    height: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
 /* Footer styling */
 
 footer {
@@ -333,4 +483,24 @@ footer p {
     gap: 1rem;
     justify-content: center;
     align-items: center;
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translate(-2rem);
+    }
+}
+
+@keyframes goldBG {
+    to {
+        background-color: gold;
+    }
 }

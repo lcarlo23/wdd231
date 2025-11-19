@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join - Bergamo Chamber of Commerce</title>
+    <meta name="description"
+        content="Join page of the Bergamo Chamber of Commerce website, become a respected member of our Chamber of Commerce">
+    <meta name="author" content="Luca Carlo">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <meta property="og:title" content="Join the Bergamo Chamber of Commerce">
+    <meta property="og:description"
+        content="Join now to become member of the Bergamo Chamber of Commerce and get all reserved privileges for our respected members">
+    <meta property="og:image" content="https://lcarlo23.github.io/wdd231/chamber/images/bergamo-logo.svg">
+    <meta property="og:url" content="https://lcarlo23.github.io/wdd231/chamber/join.html">
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/large.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <script type="module" src="scripts/join.mjs"></script>
+</head>
+
+<body>
+    <header>
+        <img src="images/bergamo-logo.svg" alt="Bergamo Logo" width="50" height="50">
+        <h2>Bergamo Chamber of Commerce</h2>
+        <div id="header-buttons">
+            <button id="contrast-button">◐</button>
+            <button id="ham-button" aria-label="menu hamburger button"></button>
+        </div>
+        <nav id="nav-bar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="directory.html">Directory</a></li>
+                <li><a href="join.html" class="active">Join</a></li>
+                <li><a href="#">Discover</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Join</h1>
+        <div id="join-wrapper">
+            <section class="container">
+                <form action="thankyou.html" method="get">
+                    <p>required fields are marked with *</p>
+                    <label for="first">First Name* <input type="text" required name="first" id="first"
+                            title="Input your first name" autocomplete="given-name"></label>
+                    <label for="last">Last Name* <input type="text" required name="last" id="last"
+                            title="Input your last name" autocomplete="family-name"></label>
+                    <label for="title">Organizational Title <input type="text" name="title" id="title"
+                            title="Accepts alpha characters, hypens, and spaces with a minimum of seven (7) characters"
+                            autocomplete="organization-title" pattern="^[A-Za-z\- ]{7,}$"></label>
+                    <label for="email">Email Address* <input type="email" required name="email" id="email"
+                            title="Input your email address" autocomplete="email"
+                            placeholder="john.doe@gmail.com"></label>
+                    <label for="phone">Mobile Phone Number* <input type="tel" required name="phone" id="phone"
+                            title="Input your mobile phone number" autocomplete="tel"></label>
+                    <label for="org">Business/Organization's Name* <input type="text" required name="org" id="org"
+                            title="Input your organization's name" autocomplete="organization"></label>
+                    <fieldset>
+                        <legend>Membership Level</legend>
+                        <label for="np"><input type="radio" name="level" id="np" value="np" checked> NP Membership (non
+                            profit
+                            organizations / no fee)</label>
+                        <label for="bronze"><input type="radio" name="level" id="bronze" value="bronze"> Bronze
+                            Membership</label>
+                        <label for="silver"><input type="radio" name="level" id="silver" value="silver"> Silver
+                            Membership</label>
+                        <label for="gold"><input type="radio" name="level" id="gold" value="gold"> Gold
+                            Membership</label>
+                    </fieldset>
+                    <label for="description">Description <textarea name="description" id="description"
+                            title="Write a brief description of your business/organization"
+                            rows="10"></textarea></label>
+                    <input type="hidden" name="timestamp" id="timestamp">
+                    <input type="submit" id="submit-btn" value="Apply for membership">
+                </form>
+            </section>
+            <section id="membership-levels">
+                <h2>Membership Levels</h2>
+                <div id="np-card" class="card">
+                    <h3>Non Profit Membership Level</h3>
+                    <button class="link-button">Learn more</button>
+                </div>
+                <dialog id="np-modal">
+                    <h3>NP Membership (Non Profit)</h3>
+                    <p>Cost: <strong>free</strong></p>
+                    <div>
+                        <p><strong>Benefits:</strong></p>
+                        <ul>
+                            <li>Access to community events at no cost.</li>
+                            <li>Networking opportunities with other non-profit organizations.</li>
+                            <li>Listing in the membership directory for local visibility.</li>
+                        </ul>
+                    </div>
+                    <p>This level is designed to support organizations that serve the community without financial
+                        burden.</p>
+                    <button id="np-close" class="close-btn">×</button>
+                </dialog>
+                <div id="bronze-card" class="card">
+                    <h3>Bronze Membership Level</h3>
+                    <button class="link-button">Learn more</button>
+                </div>
+                <dialog id="bronze-modal">
+                    <h3>Bronze Membership</h3>
+                    <p>Cost: <strong>$100/year</strong></p>
+                    <div>
+                        <p><strong>Benefits:</strong></p>
+                        <ul>
+                            <li>All NP benefits.</li>
+                            <li>Access to business workshops and training sessions.</li>
+                            <li>Discounts on chamber-sponsored events.</li>
+                            <li>Company listing in the membership directory with a link to your website.</li>
+                        </ul>
+                    </div>
+                    <p>A great entry-level option for small businesses and startups to begin building professional
+                        connections.</p>
+                    <button id="bronze-close" class="close-btn">×</button>
+                </dialog>
+                <div id="silver-card" class="card">
+                    <h3>Silver Membership Level</h3>
+                    <button class="link-button">Learn more</button>
+                </div>
+                <dialog id="silver-modal">
+                    <h3>Silver Membership</h3>
+                    <p>Cost: <strong>$250/year</strong></p>
+                    <div>
+                        <p><strong>Benefits:</strong></p>
+                        <ul>
+                            <li>All Bronze benefits.</li>
+                            <li>Promotion on chamber social media channels.</li>
+                            <li>Sponsorship opportunities at local events.</li>
+                            <li>Reduced rates for advertising in chamber publications.</li>
+                            <li>Invitations to special networking events reserved for Silver and Gold members.</li>
+                        </ul>
+                    </div>
+                    <p>Ideal for growing companies that want to expand their visibility and influence.</p>
+                    <button id="silver-close" class="close-btn">×</button>
+                </dialog>
+                <div id="gold-card" class="card">
+                    <h3>Gold Membership Level</h3>
+                    <button class="link-button">Learn more</button>
+                </div>
+                <dialog id="gold-modal">
+                    <h3>Gold Membership</h3>
+                    <p>Cost: <strong>$500/year</strong></p>
+                    <div>
+                        <p><strong>Benefits:</strong></p>
+                        <ul>
+                            <li>All Silver benefits.</li>
+                            <li>Spotlight position on the chamber's home page.</li>
+                            <li>Priority access and exclusive discounts for high-profile events.</li>
+                            <li>Personalized business development consulting.</li>
+                            <li>Premium advertising opportunities and features in chamber newsletters.</li>
+                        </ul>
+                    </div>
+                    <p>The premium package for estabilished businesses seeking maximum exposure and leadership within
+                        the community.</p>
+                    <button id="gold-close" class="close-btn">×</button>
+                </dialog>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <section id="info-box">
+            <p>Bergamo Chamber of Commerce</p>
+            <p>Largo Belotti, 16</p>
+            <p>Bergamo, 24121 Italy</p>
+            <p><a href="mailto:cciaa.bergamo@bg.legalmail.camcom.it">cciaa.bergamo@bg.legalmail.camcom.it</a></p>
+            <p><a href="tel:+390354225111">(+39) 035 4225 111</a></p>
+        </section>
+        <section id="social">
+            <a href="http://www.youtube.com/user/CCIAADIBERGAMO" target="_blank"><img src="images/youtube-icon.svg"
+                    alt="Bergamo Chamber of Commerce Youtube Channel" width="50" height="50" loading="lazy"></a>
+            <a href="https://x.com/cciaabg" target="_blank"><img src=" images/twitter-icon.svg"
+                    alt="Bergamo Chamber of Commerce Twitter/X Profile" width="50" height="50" loading="lazy"></a>
+            <a href="https://www.linkedin.com/company/cciaa-bergamo" target="_blank"><img src="images/linkedin-icon.svg"
+                    alt="Bergamo Chamber of Commerce LinkedIn Profile" width="50" height="50" loading="lazy"></a>
+        </section>
+        <section id="copyright">
+            <p>WDD231 Class Project</p>
+            <p>Luca Carlo</p>
+            <p>© <span id="current-year"></span> Bergamo Chamber of Commerce</p>
+            <p>Last Modification: <span id="last-modified"></span></p>
+        </section>
+
+    </footer>
+</body>
+
+</html>

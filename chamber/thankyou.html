@@ -21,7 +21,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
-    <script type="module" src="scripts/home.mjs"></script>
+    <script type="module" src="scripts/thankyou.mjs"></script>
 </head>
 
 <body>
@@ -34,85 +34,21 @@
         </div>
         <nav id="nav-bar">
             <ul>
-                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="directory.html">Directory</a></li>
-                <li><a href="join.html">Join</a></li>
+                <li><a href="join.html" class="active">Join</a></li>
                 <li><a href="#">Discover</a></li>
             </ul>
         </nav>
     </header>
-    <main>
-        <section id="hero">
-            <img src="images/bergamo-hero.webp" id="hero-background" alt="Bergamo Hero image">
-            <a href="join.html" id="join-button">JOIN NOW!</a>
+    <main class="container">
+        <h1>Thank you!</h1>
+        <section id="thankyou">
+            <p>Thank you very much for your request!</p>
+            <p>We’re delighted to have you with us. Your membership subscription will be confirmed shortly.</p>
+            <p>Here are the details you submitted:</p>
+            <div id="submission-info"></div>
         </section>
-        <h1>Home</h1>
-        <section id="info-boxes">
-            <article id="events" class="home-box">
-                <h2>Events</h2>
-                <div class="box-content">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Event</th>
-                                <th>Date</th>
-                                <th>Place</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Festival of Lights in Upper Town</td>
-                                <td>July 12</td>
-                                <td>Piazza Vecchia</td>
-                            </tr>
-                            <tr>
-                                <td>Alpine Flavors Market</td>
-                                <td>August 3</td>
-                                <td>Former Convent of San Francesco</td>
-                            </tr>
-                            <tr>
-                                <td>Bergamo Jazz Week</td>
-                                <td>Sept 20–24</td>
-                                <td>Donizetti Theatre</td>
-                            </tr>
-                            <tr>
-                                <td>Bergamo Contemporary Art Biennial</td>
-                                <td>Oct 1–30</td>
-                                <td>Municipal Gallery</td>
-                            </tr>
-                            <tr>
-                                <td>City and Hill Photo Marathon</td>
-                                <td>Nov 15</td>
-                                <td>Sentierone</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </article>
-            <article class="home-box">
-                <h2>Current Weather</h2>
-                <div id="weather" class="box-content">
-                    <div id="weather-info">
-                        <p id="temp"></p>
-                        <p id="description"></p>
-                        <p id="high"></p>
-                        <p id="low"></p>
-                        <p id="humidity"></p>
-                        <p id="sunrise"></p>
-                        <p id="sunset"></p>
-                    </div>
-                </div>
-            </article>
-            <article class="home-box">
-                <h2>Weather Forecast</h2>
-                <div class="box-content">
-                    <p id="today"></p>
-                    <p id="tomorrow"></p>
-                    <p id="aftertomorrow"></p>
-                </div>
-            </article>
-        </section>
-        <section id="company-spotlights"></section>
     </main>
     <footer>
         <section id="info-box">

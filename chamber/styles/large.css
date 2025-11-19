@@ -42,6 +42,12 @@
         width: 20%;
     }
 
+    /* Join page styling */
+
+    #membership-levels dialog[open] {
+        max-width: 40rem;
+    }
+
     /* Footer styling */
 
     footer {
