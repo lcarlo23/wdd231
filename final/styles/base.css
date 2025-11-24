@@ -76,3 +76,11 @@ h3 {
 #accent-box {
     background-color: var(--accent-color);
 }
+
+a {
+    color: var(--accent-color);
+}
+
+a:hover {
+    color: var(--primary-color);
+}
