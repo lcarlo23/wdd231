@@ -5,6 +5,7 @@
     --secondary-color: #8c4a2f;
     --background-color: #f6f2ec;
     --text-color: #16282f;
+    --semi-transparent: #00000080;
 }
 
 html {
@@ -129,7 +130,7 @@ main>h1 {
     background-color: var(--secondary-color);
     color: var(--background-color);
     padding: 0.5rem 1rem;
-    box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 0.5rem var(--semi-transparent);
     font-weight: 900;
     cursor: pointer;
 }
@@ -205,7 +206,7 @@ main>h1 {
     width: 100%;
     max-width: 20rem;
     min-width: 15rem;
-    box-shadow: 0 0 20px 0 #d3d3d3;
+    box-shadow: 0 0 20px #d3d3d3;
     padding: 1rem;
     border-radius: 0.25rem;
     background-color: #f8f8f8;
@@ -257,7 +258,8 @@ main>h1 {
     background: var(--background-color);
 }
 
-#members {
+#members,
+#pois {
     padding: 1rem;
     display: flex;
     flex-wrap: wrap;
@@ -279,9 +281,6 @@ main>h1 {
     padding: 2rem;
     border-radius: 0.25rem;
     background-color: #f8f8f8;
-}
-
-.card p {
     text-align: center;
 }
 
@@ -389,7 +388,7 @@ textarea {
     border: none;
     padding: 2rem;
     border-radius: 0.5rem;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 20px var(--semi-transparent);
     text-align: left;
     display: flex;
     flex-direction: column;
@@ -399,7 +398,7 @@ textarea {
 
 dialog::backdrop {
     backdrop-filter: blur(0.25rem);
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: var(--semi-transparent);
 }
 
 #membership-levels dialog ul {
@@ -456,6 +455,58 @@ dialog::backdrop {
     border: none;
     background: none;
     cursor: pointer;
+}
+
+/* Discover page styling */
+
+#welcome {
+    text-align: center;
+    background-color: var(--background-color);
+    margin: 0 auto;
+    padding: 1rem;
+    font-weight: 700;
+}
+
+.discover-image {
+    object-fit: contain;
+}
+
+#pois .card {
+    display: grid;
+    grid-template-areas:
+        "name"
+        "image"
+        "description"
+        "address"
+        "button";
+    gap: 1rem;
+    text-align: left;
+    max-width: none;
+}
+
+#pois .card h2 {
+    grid-area: name;
+}
+
+#pois .card address {
+    grid-area: address;
+    font-size: 0.75rem;
+}
+
+#pois .card figure {
+    grid-area: image;
+}
+
+#pois .card img {
+    object-fit: cover;
+}
+
+#pois .card p {
+    grid-area: description;
+}
+
+#pois .card button {
+    grid-area: button;
 }
 
 /* Footer styling */

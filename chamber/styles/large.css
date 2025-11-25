@@ -1,4 +1,4 @@
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 64rem) {
 
     /* Header styling */
 
@@ -46,6 +46,13 @@
 
     #membership-levels dialog[open] {
         max-width: 40rem;
+    }
+
+    /* Discover page styling */
+
+    #pois {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
     }
 
     /* Footer styling */
