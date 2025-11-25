@@ -1,0 +1,44 @@
+{
+    "poi": [
+        {
+            "name": "Città Alta (Upper Town)",
+            "address": "Città Alta, 24129 Bergamo BG, Italy",
+            "description": "The historic upper town of Bergamo, known for its medieval walls, narrow streets, and panoramic views."
+        },
+        {
+            "name": "Piazza Vecchia",
+            "address": "Piazza Vecchia, 24129 Bergamo BG, Italy",
+            "description": "A central square in the upper town, surrounded by historic buildings and considered one of Italy's most beautiful squares."
+        },
+        {
+            "name": "Basilica of Santa Maria Maggiore",
+            "address": "Piazza Duomo, 5, 24129 Bergamo BG, Italy",
+            "description": "A Romanesque basilica dating back to the 12th century, famous for its rich Baroque interior and historical artworks."
+        },
+        {
+            "name": "Colleoni Chapel",
+            "address": "Piazza Duomo, 24129 Bergamo BG, Italy",
+            "description": "A Renaissance mausoleum built for Bartolomeo Colleoni, admired for its elaborate façade and artistic decorations."
+        },
+        {
+            "name": "Accademia Carrara",
+            "address": "Piazza Giacomo Carrara, 82, 24121 Bergamo BG, Italy",
+            "description": "An important art gallery hosting a rich collection of Renaissance and Baroque masterpieces."
+        },
+        {
+            "name": "GAMeC (Gallery of Modern and Contemporary Art)",
+            "address": "Via San Tomaso, 53, 24121 Bergamo BG, Italy",
+            "description": "A modern art museum featuring contemporary exhibitions, educational programs, and cultural events."
+        },
+        {
+            "name": "Bergamo Cathedral (Duomo di Bergamo)",
+            "address": "Piazza Duomo, 24129 Bergamo BG, Italy",
+            "description": "A neoclassical cathedral dedicated to Saint Alexander, with beautiful interiors and significant religious artworks."
+        },
+        {
+            "name": "Rocca di Bergamo",
+            "address": "Via alla Rocca, 24129 Bergamo BG, Italy",
+            "description": "A medieval fortress offering historical exhibits and impressive views over the city and surrounding hills."
+        }
+    ]
+}
