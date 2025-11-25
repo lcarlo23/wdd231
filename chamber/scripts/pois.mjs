@@ -12,7 +12,6 @@ function createCards(pois) {
         const button = document.createElement('button');
 
         card.classList.add('card');
-        image.classList.add('discover-image');
         button.classList.add('link-button')
 
         image.src = poi.image;

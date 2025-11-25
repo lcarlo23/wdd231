@@ -32,20 +32,10 @@
 
     /* Directory styling */
 
-    #members table {
-        max-width: none;
-    }
-
     #members th,
     #members td {
         display: table-cell;
         width: 20%;
-    }
-
-    /* Join page styling */
-
-    #membership-levels dialog[open] {
-        max-width: 40rem;
     }
 
     /* Discover page styling */

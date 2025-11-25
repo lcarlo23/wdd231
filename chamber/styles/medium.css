@@ -7,12 +7,7 @@
             "button button";
     }
 
-    #pois .card figure {
-        width: 19rem;
-    }
-
     #pois .card img {
-        width: 100%;
         transition:
             transform ease-in-out 0.15s,
             box-shadow ease-in-out 0.15s;
