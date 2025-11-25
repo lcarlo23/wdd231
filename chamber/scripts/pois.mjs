@@ -16,7 +16,7 @@ function createCards(pois) {
 
         image.src = poi.image;
         image.alt = `${poi.name} image`;
-        image.fetchPriority = 'high';
+        image.loading = 'lazy';
         image.width = '300';
         image.height = '200';
 
