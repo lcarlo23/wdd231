@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Country Explorer</title>
+    <meta name="description" content="Homepage of the Country Explorer Website">
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/large.css">
+    <link rel="stylesheet" href="styles/home.css">
+    <link rel="icon" href="images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+    <script type="module" src="scripts/homepage.mjs"></script>
+</head>
+
+<body>
+    <header>
+        <img id="header-logo" src="images/logo.png" alt="Country Explorer Logo" width="48" height="48">
+        <h2>Country Explorer</h2>
+        <button id="ham-button" aria-label="menu hamburger button"></button>
+        <nav id="nav-bar">
+            <ul>
+                <li class="nav-button"><a href="index.html" class="active">Home</a></li>
+                <li class="nav-button"><a href="discover.html">Discover</a></li>
+                <li class="nav-button"><a href="my-countries.html">My Countries</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="hero">
+            <img src="images/hero-background.webp" alt="Hero Background">
+            <h2>Explore The World</h2>
+            <p>Quick access to global geographic and demographic data</p>
+            <a href="discover.html" class="link-button">Browse all countries</a>
+        </section>
+        <section id="random-country">
+        </section>
+        <section id="features-section">
+            <article class="feature-card">
+                <h3>Real-Time Global Data</h3>
+                <p>Access crucial facts for every nation, retrieved instantly in real-time</p>
+                <a href="discover.html" class="link-button">Start exploring</a>
+            </article>
+            <article class="feature-card">
+                <h3>Search & Filter</h3>
+                <p>Search or filter the contry list to quickly find what you need.</p>
+                <a href="discover.html" class="link-button">Browse Now</a>
+            </article>
+            <article class="feature-card">
+                <h3>Save your Favorites</h3>
+                <p>Don't lose track of countries! Save your favorites with a single click!</p>
+                <a href="my-countries.html" class="link-button">View Saved List</a>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <section id="copyright">Luca Carlo | WDD231</section>
+    </footer>
+</body>
+
+</html>

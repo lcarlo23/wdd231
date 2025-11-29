@@ -1,0 +1,39 @@
+/********** SITE PLAN PAGE **********/
+
+#color-scheme p:not(:last-of-type) {
+    margin-bottom: 3rem;
+}
+
+#color-scheme h3 {
+    color: var(--bg-color);
+    text-align: center;
+}
+
+#primary-box,
+#text-box,
+#bg-box,
+#accent-box {
+    padding: 1rem;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
+    max-width: 10rem;
+}
+
+#primary-box {
+    background-color: var(--primary-color);
+}
+
+#text-box {
+    background-color: var(--text-color);
+}
+
+#bg-box {
+    background-color: var(--bg-color);
+}
+
+#accent-box {
+    background-color: var(--accent-color);
+}
+
+#bg-box h3 {
+    color: var(--text-color);
+}
