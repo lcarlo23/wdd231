@@ -2,6 +2,8 @@
 
 #hero {
     position: relative;
+    width: 100%;
+    overflow: hidden;
 }
 
 #hero img {
@@ -32,15 +34,43 @@
 }
 
 .link-button:hover {
-    background-color: var(--bg-color);
+    background-color: transparent;
     color: var(--text-color);
 }
 
 #hero,
+#random-country,
 .feature-card {
     text-align: center;
+    place-items: center;
 }
 
-#features-section {
+#random-country {
     display: grid;
+    grid-template-areas:
+        "name name"
+        "flag infobox";
+}
+
+#random-country,
+.flag,
+.feature-card {
+    box-shadow: var(--shadow);
+}
+
+#random-country h2 {
+    grid-area: name;
+    font-size: 2rem;
+}
+
+.flag {
+    object-fit: cover;
+}
+
+#random-country ul {
+    text-align: left;
+}
+
+.feature-card {
+    margin: 0 1.5rem;
 }
