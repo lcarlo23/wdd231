@@ -1,0 +1,32 @@
+@media screen and (min-width: 64rem) {
+    main {
+        display: grid;
+        grid-template-areas:
+            "hero hero"
+            "country features";
+        grid-template-rows: repeat(2, max-content);
+        grid-template-columns: 25rem auto;
+        gap: 1rem;
+        /* place-content: center;
+        align-content: center; */
+    }
+
+    #hero {
+        grid-area: hero;
+    }
+
+    #random-country {
+        grid-area: country;
+    }
+
+    #features-section {
+        grid-area: features;
+        grid-template-columns: repeat(3, 1fr);
+        padding: 0;
+    }
+
+    .feature-card {
+        margin: 0;
+        align-content: space-between;
+    }
+}

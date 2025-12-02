@@ -1,0 +1,14 @@
+@media screen and (min-width: 64rem) {
+    header {
+        grid-template-areas: "logo title menu";
+    }
+
+    nav {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    #ham-button {
+        display: none;
+    }
+}
