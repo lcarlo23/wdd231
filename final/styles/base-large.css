@@ -11,4 +11,39 @@
     #ham-button {
         display: none;
     }
+
+    /* HOME PAGE */
+
+
+    #hero,
+    #countries-grid {
+        margin-bottom: 2rem;
+    }
+
+    #hero {
+        grid-area: hero;
+    }
+
+    #hero img {
+        max-height: 40vh;
+    }
+
+    #random-country {
+        grid-area: country;
+    }
+
+    #features-section {
+        grid-area: features;
+        grid-template-columns: repeat(3, 1fr);
+        padding: 0;
+    }
+
+    .feature-card {
+        margin: 0;
+        align-content: space-between;
+    }
+
+    dialog {
+        max-width: 25rem;
+    }
 }

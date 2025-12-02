@@ -141,17 +141,154 @@ nav a:hover {
     padding: 0.5rem 1rem;
     border-radius: 2rem;
     font-weight: 600;
+    text-align: center;
+    cursor: pointer;
     transition:
         background-color 0.1s ease-in-out,
         color 0.1s ease-in-out;
 }
 
 .link-button:hover {
-    background-color: transparent;
+    background-color: var(--bg-color);
     color: var(--text-color);
 }
 
+.hidden {
+    display: none;
+}
+
 /* FOOTER */
+
 footer {
     margin-top: 3rem;
+}
+
+/********** HOME PAGE COMPONENTS **********/
+
+#hero {
+    grid-template-areas: "hero";
+    padding: 0;
+}
+
+#hero picture,
+#hero img,
+#hero source {
+    grid-area: hero;
+    width: 100%;
+    height: 100%;
+}
+
+#hero img,
+#hero source {
+    object-fit: cover;
+    filter: opacity(0.25);
+}
+
+#hero-cta,
+#hero-search {
+    grid-area: hero;
+    z-index: 1;
+}
+
+#hero h2 {
+    font-size: 2rem;
+}
+
+#hero p,
+.feature-card p {
+    font-weight: 700;
+}
+
+#hero,
+#random-country,
+.feature-card,
+.country-card {
+    text-align: center;
+    place-items: center;
+}
+
+#random-country {
+    grid-template-areas:
+        "name name"
+        "flag infobox";
+    width: 100%;
+    height: 100%;
+}
+
+#random-country,
+.flag,
+.feature-card {
+    box-shadow: var(--shadow);
+}
+
+#random-country h2 {
+    grid-area: name;
+    font-size: 2rem;
+}
+
+.flag {
+    object-fit: cover;
+}
+
+#random-country ul {
+    text-align: left;
+}
+
+.feature-card {
+    margin: 0 1.5rem;
+}
+
+/********** DISCOVER PAGE COMPONENTS **********/
+
+input,
+select {
+    border: none;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+#countries-grid {
+    gap: 2rem;
+    min-height: 20vh;
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+}
+
+.country-card {
+    box-shadow: var(--shadow);
+    padding: 2rem;
+}
+
+#load-more {
+    display: block;
+    margin: 0 auto;
+}
+
+dialog {
+    margin: 0 auto;
+    top: 5vh;
+    border: none;
+    padding: 1rem;
+    box-shadow: var(--shadow);
+    display: grid;
+    grid-template-areas:
+        "name"
+        "flag"
+        "info"
+        "buttons";
+    gap: 1rem;
+    max-height: 85vh;
+    border-radius: 0.5rem;
+}
+
+dialog h2 {
+    grid-area: name;
+    text-align: center;
+}
+
+dialog .flag {
+    grid-area: flag;
+}
+
+::backdrop {
+    backdrop-filter: blur(0.5rem);
 }
