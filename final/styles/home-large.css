@@ -4,15 +4,18 @@
         grid-template-areas:
             "hero hero"
             "country features";
-        grid-template-rows: repeat(2, max-content);
+        grid-template-rows: auto max-content;
         grid-template-columns: 25rem auto;
         gap: 1rem;
-        /* place-content: center;
-        align-content: center; */
     }
 
     #hero {
         grid-area: hero;
+        margin-bottom: 2rem;
+    }
+
+    #hero img {
+        max-height: 40vh;
     }
 
     #random-country {

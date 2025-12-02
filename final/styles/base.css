@@ -30,7 +30,6 @@ h3 {
 main {
     width: 100%;
     max-width: 64rem;
-    min-height: 89vh;
 }
 
 section,
@@ -150,4 +149,9 @@ nav a:hover {
 .link-button:hover {
     background-color: transparent;
     color: var(--text-color);
+}
+
+/* FOOTER */
+footer {
+    margin-top: 3rem;
 }
