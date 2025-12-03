@@ -153,10 +153,6 @@ nav a:hover {
     color: var(--text-color);
 }
 
-.hidden {
-    display: none;
-}
-
 /* FOOTER */
 
 footer {
@@ -243,6 +239,7 @@ footer {
 input,
 select {
     border: none;
+    outline: none;
     padding: 1rem;
     border-radius: 0.5rem;
 }
@@ -253,6 +250,13 @@ select {
     grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
 }
 
+.empty-search {
+    text-align: center;
+    font-weight: 700;
+    width: 100%;
+    hyphens: none;
+}
+
 .country-card {
     box-shadow: var(--shadow);
     padding: 2rem;
@@ -261,6 +265,11 @@ select {
 #load-more {
     display: block;
     margin: 0 auto;
+}
+
+.empty-search,
+#load-more {
+    grid-column: 1 / -1;
 }
 
 dialog {

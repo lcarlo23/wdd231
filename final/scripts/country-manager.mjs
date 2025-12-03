@@ -2,31 +2,31 @@ import apiFetch from "./apiFetch.mjs";
 
 const main = document.querySelector('main');
 const countriesGrid = document.getElementById('countries-grid');
-const region = document.getElementById('region-filter');
 const countrySearch = document.getElementById('country-search');
-const loadMore = document.getElementById('load-more');
+const regionFilter = document.getElementById('region-filter');
 const url = "https://restcountries.com/v3.1/all?fields=name,flags,population,capital,languages,currencies,region,maps";
 
 let countries = [];
 
 const cardLoadLimit = 6;
 let cardLoaded = 0;
-let oldSearch = '';
-let oldRegion = '';
 
 export default async function populatePage() {
     countries = await apiFetch(url);
-
     renderCountries(countries);
+
     countrySearch.addEventListener('input', filterCountries);
-    region.addEventListener('input', filterCountries);
-    loadMore.addEventListener('click', filterCountries);
+    regionFilter.addEventListener('input', filterCountries);
 }
 
-function renderCountries(countryList) {
-    const slicedList = countryList.slice(cardLoaded, cardLoaded + cardLoadLimit);
+function renderCountries(list) {
+    const countriesList = list.slice(cardLoaded, cardLoaded + cardLoadLimit);
 
-    for (const country of slicedList) {
+    if (document.getElementById('load-more')) {
+        document.getElementById('load-more').remove();
+    }
+
+    for (const country of countriesList) {
         const card = document.createElement('div');
         const h2 = document.createElement('h2');
         const flag = document.createElement('img');
@@ -52,37 +52,69 @@ function renderCountries(countryList) {
 
     cardLoaded += cardLoadLimit;
 
-    if (cardLoaded >= countryList.length) {
-        loadMore.classList.add('hidden');
-    }
+    if (cardLoaded < list.length) {
+        const loadMoreBtn = document.createElement('button');
+        loadMoreBtn.id = 'load-more';
+        loadMoreBtn.classList.add('link-button');
+        loadMoreBtn.textContent = 'Load more';
+
+        loadMoreBtn.addEventListener('click', () => {
+            renderCountries(list)
+        });
+
+        countriesGrid.appendChild(loadMoreBtn);
+    };
 }
 
-function filterCountries(e) {
-    const searchTerm = countrySearch.value.toLowerCase();
+function filterCountries() {
+    const regionSearch = regionFilter.value.toLowerCase();
+    const nameSearch = countrySearch.value.toLowerCase();
 
-    if (searchTerm != oldSearch || region.value != oldRegion) {
-        countriesGrid.textContent = '';
-        cardLoaded = 0;
-        loadMore.classList.remove('hidden');
+    let filteredRegion;
+    let filteredCountries;
+
+    if (regionSearch !== "") {
+        filteredRegion = countries.filter(country =>
+            country.region.toLowerCase() === regionSearch
+        );
+    } else {
+        filteredRegion = countries;
     }
 
-    const filteredList = countries.filter(country => {
-        const name = country.name.common.toLowerCase();
-        if (region.value === country.region || region.value === '') {
-            return name.includes(searchTerm);
-        }
-    });
+    if (nameSearch !== "") {
+        filteredCountries = filteredRegion.filter(country =>
+            country.name.common.toLowerCase().includes(nameSearch)
+        );
+    } else {
+        filteredCountries = filteredRegion;
+    }
 
-    renderCountries(filteredList);
+    resetGrid();
 
-    oldSearch = searchTerm;
-    oldRegion = region.value;
+    if (filteredCountries.length === 0) {
+        const p = document.createElement('p');
+        p.classList.add('empty-search');
+        p.textContent = 'No results found. Try adjusting your filters or search term.';
+
+        countriesGrid.appendChild(p);
+
+        return;
+    }
+
+    renderCountries(filteredCountries);
+}
+
+function resetGrid() {
+    countriesGrid.textContent = '';
+    cardLoaded = 0;
 }
 
 function countryModal(e) {
     const name = e.target.dataset.name;
 
     const country = countries.find(country => country.name.common === name);
+
+    const countryName = country.name.common;
 
     const modal = document.createElement('dialog');
     const h2 = document.createElement('h2');
@@ -97,23 +129,28 @@ function countryModal(e) {
     const region = document.createElement('li');
     const buttonsDiv = document.createElement('div');
     const mapBtn = document.createElement('button');
+    const saveBtn = document.createElement('button');
     const closeBtn = document.createElement('button');
 
     flag.classList.add('flag');
     infoDiv.classList.add('info-box');
     mapBtn.classList.add('link-button');
+    saveBtn.classList.add('link-button');
     closeBtn.classList.add('link-button');
 
     flag.src = country.flags.svg;
     flag.alt = country.flags.alt;
 
-    h2.textContent = country.name.common;
+    h2.textContent = countryName;
     population.innerHTML = `Population: <b>${country.population.toLocaleString()}</b>`;
     capital.innerHTML = `Capital: <b>${country.capital}</b>`;
     currencies.textContent = 'Currencies:';
     languages.textContent = 'Languages:';
     region.innerHTML = `Region: <b>${country.region}</b>`;
     mapBtn.textContent = 'View on Google Maps';
+
+
+    saveBtn.textContent = isCountrySaved(countryName) ? 'Remove from Favorites' : 'Save to Favorites';
     closeBtn.textContent = 'Close';
 
     currenciesList.appendChild(currencies);
@@ -143,6 +180,16 @@ function countryModal(e) {
         window.open(country.maps.googleMaps, '_blank');
     })
 
+    saveBtn.addEventListener('click', e => {
+        if (saveBtn.textContent == 'Save to Favorites') {
+            saveCountry(countryName);
+            saveBtn.textContent = 'Remove from Favorites';
+        } else {
+            removeCountry(countryName);
+            saveBtn.textContent = 'Save to Favorites';
+        }
+    })
+
     closeBtn.addEventListener('click', e => {
         modal.close();
         modal.remove();
@@ -155,6 +202,7 @@ function countryModal(e) {
     infoDiv.appendChild(currencies);
     infoDiv.appendChild(currenciesList);
     buttonsDiv.appendChild(mapBtn);
+    buttonsDiv.appendChild(saveBtn);
     buttonsDiv.appendChild(closeBtn);
     modal.appendChild(h2);
     modal.appendChild(flag);
@@ -163,4 +211,34 @@ function countryModal(e) {
     main.appendChild(modal);
 
     modal.showModal();
+}
+
+function getMyCountries() {
+    return JSON.parse(localStorage.getItem('myCountries')) || [];
+}
+
+function saveCountry(name) {
+    let myCountries = getMyCountries();
+
+    if (!myCountries.includes(name)) {
+        myCountries.push(name);
+
+        localStorage.setItem('myCountries', JSON.stringify(myCountries));
+    }
+}
+
+function removeCountry(name) {
+    let myCountries = getMyCountries();
+
+    if (myCountries.includes(name)) {
+        const index = myCountries.indexOf(name);
+        myCountries.splice(index, 1);
+
+        localStorage.setItem('myCountries', JSON.stringify(myCountries));
+    }
+}
+
+function isCountrySaved(name) {
+    const myCountries = getMyCountries();
+    return myCountries.includes(name);
 }
