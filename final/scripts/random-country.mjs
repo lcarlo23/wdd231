@@ -40,8 +40,8 @@ export default async function displayRandomCountry() {
 
     infoDiv.appendChild(population);
     infoDiv.appendChild(capital);
+    currencies.appendChild(currenciesList);
     infoDiv.appendChild(currencies);
-    infoDiv.appendChild(currenciesList);
     countrySection.appendChild(h2);
     countrySection.appendChild(flag);
     countrySection.appendChild(infoDiv);

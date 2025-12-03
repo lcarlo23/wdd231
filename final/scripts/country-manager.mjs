@@ -1,4 +1,5 @@
 import apiFetch from "./apiFetch.mjs";
+import { populateMyCountries } from "./saved-countries.mjs";
 
 const main = document.querySelector('main');
 const countriesGrid = document.getElementById('countries-grid');
@@ -6,17 +7,19 @@ const countrySearch = document.getElementById('country-search');
 const regionFilter = document.getElementById('region-filter');
 const url = "https://restcountries.com/v3.1/all?fields=name,flags,population,capital,languages,currencies,region,maps";
 
-let countries = [];
-
 const cardLoadLimit = 6;
 let cardLoaded = 0;
 
-export default async function populatePage() {
-    countries = await apiFetch(url);
+async function populatePage() {
+    const countries = await getCountries();
     renderCountries(countries);
 
-    countrySearch.addEventListener('input', filterCountries);
-    regionFilter.addEventListener('input', filterCountries);
+    countrySearch.addEventListener('input', () => filterCountries(countries));
+    regionFilter.addEventListener('input', () => filterCountries(countries));
+}
+
+async function getCountries() {
+    return await apiFetch(url);
 }
 
 function renderCountries(list) {
@@ -35,7 +38,7 @@ function renderCountries(list) {
         card.classList.add('country-card');
         button.classList.add('link-button');
         button.dataset.name = country.name.common;
-        button.addEventListener('click', countryModal);
+        button.addEventListener('click', e => countryModal(e, list));
 
         h2.textContent = country.name.common;
         flag.src = country.flags.svg;
@@ -66,7 +69,7 @@ function renderCountries(list) {
     };
 }
 
-function filterCountries() {
+function filterCountries(list) {
     const regionSearch = regionFilter.value.toLowerCase();
     const nameSearch = countrySearch.value.toLowerCase();
 
@@ -74,11 +77,11 @@ function filterCountries() {
     let filteredCountries;
 
     if (regionSearch !== "") {
-        filteredRegion = countries.filter(country =>
+        filteredRegion = list.filter(country =>
             country.region.toLowerCase() === regionSearch
         );
     } else {
-        filteredRegion = countries;
+        filteredRegion = list;
     }
 
     if (nameSearch !== "") {
@@ -109,10 +112,10 @@ function resetGrid() {
     cardLoaded = 0;
 }
 
-function countryModal(e) {
+function countryModal(e, list) {
     const name = e.target.dataset.name;
 
-    const country = countries.find(country => country.name.common === name);
+    const country = list.find(country => country.name.common === name);
 
     const countryName = country.name.common;
 
@@ -187,6 +190,14 @@ function countryModal(e) {
         } else {
             removeCountry(countryName);
             saveBtn.textContent = 'Save to Favorites';
+            if (window.location.href.includes('my-countries')) {
+                modal.close();
+                modal.remove();
+
+                resetGrid();
+
+                populateMyCountries();
+            }
         }
     })
 
@@ -242,3 +253,5 @@ function isCountrySaved(name) {
     const myCountries = getMyCountries();
     return myCountries.includes(name);
 }
+
+export { countriesGrid, countrySearch, regionFilter, populatePage, getCountries, renderCountries, filterCountries, getMyCountries }

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Countries - Country Explorer</title>
+    <meta name="description" content="My Countries Page of the Country Explorer Website - Explore the World">
+    <meta name="author" content="Luca Carlo">
+    <meta property="og:title" content="My Countries Page of The Country Explorer Website- Explore the World">
+    <meta property="og:description"
+        content="Explore all your saved countries data quickly. Find capital, population, flag, and much more!">
+    <meta property="og:image" content="https://lcarlo23.github.io/wdd231/final/images/hero-background.webp">
+    <meta property="og:url" content="https://lcarlo23.github.io/wdd231/final/my-countries.html">
+
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/base-large.css">
+    <link rel="icon" href="images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+    <script type="module" src="scripts/my-countries.mjs"></script>
+</head>
+
+<body>
+    <header>
+        <img id="header-logo" src="images/logo.png" alt="Country Explorer Logo" width="48" height="48">
+        <h2>Country Explorer</h2>
+        <button id="ham-button" aria-label="menu hamburger button"></button>
+        <nav id="nav-bar">
+            <ul>
+                <li class="nav-button"><a href="index.html">Home</a></li>
+                <li class="nav-button"><a href="discover.html">Discover</a></li>
+                <li class="nav-button"><a href="my-countries.html" class="active">My Countries</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="hero">
+            <picture>
+                <source srcset="images/hero-background-large.webp" media="(min-width: 64rem)">
+                <img src="images/hero-background.webp" alt="Hero Background">
+            </picture>
+            <div id="hero-search">
+                <h1>My Countries</h1>
+                <p>Quick access to your saved countries from around the world</p>
+                <input type="text" id="country-search" placeholder="Search country by name...">
+                <select name="region-filter" id="region-filter" aria-label="Filter by region">
+                    <option value="">Filter by region</option>
+                    <option value="Africa">Africa</option>
+                    <option value="Americas">Americas</option>
+                    <option value="Asia">Asia</option>
+                    <option value="Europe">Europe</option>
+                    <option value="Oceania">Oceania</option>
+                    <option value="Antarctic">Antarctic</option>
+                </select>
+            </div>
+        </section>
+        <section id="countries-grid">
+        </section>
+    </main>
+    <footer>
+        <section id="copyright">Luca Carlo | WDD231</section>
+    </footer>
+</body>
+
+</html>
