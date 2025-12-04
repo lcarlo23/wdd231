@@ -237,16 +237,18 @@ footer {
 /********** DISCOVER PAGE COMPONENTS **********/
 
 input,
-select {
+select,
+textarea {
     border: none;
     outline: none;
-    padding: 1rem;
+    padding: 0.5rem;
     border-radius: 0.5rem;
+    box-shadow: var(--shadow);
 }
 
 #countries-grid {
     gap: 2rem;
-    min-height: 20vh;
+    min-height: 50vh;
     grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
 }
 
@@ -298,6 +300,48 @@ dialog .flag {
     grid-area: flag;
 }
 
-::backdrop {
+dialog::backdrop {
     backdrop-filter: blur(0.5rem);
+}
+
+.info-box {
+    margin-top: 1rem;
+}
+
+/********** FEEDBACK PAGE COMPONENTS **********/
+
+#form-container,
+#response-container {
+    max-width: 32rem;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+#feedback-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: left;
+}
+
+#feedback-form input {
+    padding: 0.5rem;
+}
+
+#feedback-form label,
+#feedback-form button {
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+#feedback-form button {
+    display: inline-block;
+    width: fit-content;
+    margin: 3rem auto 0;
+}
+
+p.summary {
+    text-align: left;
+    font-weight: 400;
+    margin: 2rem 0;
 }

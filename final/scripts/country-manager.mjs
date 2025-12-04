@@ -7,19 +7,15 @@ const countrySearch = document.getElementById('country-search');
 const regionFilter = document.getElementById('region-filter');
 const url = "https://restcountries.com/v3.1/all?fields=name,flags,population,capital,languages,currencies,region,maps";
 
-const cardLoadLimit = 6;
+const cardLoadLimit = 15;
 let cardLoaded = 0;
 
 async function populatePage() {
-    const countries = await getCountries();
+    const countries = await apiFetch(url);
     renderCountries(countries);
 
     countrySearch.addEventListener('input', () => filterCountries(countries));
     regionFilter.addEventListener('input', () => filterCountries(countries));
-}
-
-async function getCountries() {
-    return await apiFetch(url);
 }
 
 function renderCountries(list) {
@@ -41,10 +37,11 @@ function renderCountries(list) {
         button.addEventListener('click', e => countryModal(e, list));
 
         h2.textContent = country.name.common;
-        flag.src = country.flags.svg;
+        flag.src = country.flags.png;
         flag.alt = country.flags.alt;
         flag.width = 300;
         flag.height = 150;
+        flag.loading = 'lazy';
         button.textContent = `Discover ${country.name.common}`;
 
         card.appendChild(h2);
@@ -254,4 +251,4 @@ function isCountrySaved(name) {
     return myCountries.includes(name);
 }
 
-export { countriesGrid, countrySearch, regionFilter, populatePage, getCountries, renderCountries, filterCountries, getMyCountries }
+export { countriesGrid, countrySearch, regionFilter, url, populatePage, renderCountries, filterCountries, getMyCountries }

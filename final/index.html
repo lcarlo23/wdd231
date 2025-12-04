@@ -36,14 +36,18 @@
                 <li class="nav-button"><a href="index.html" class="active">Home</a></li>
                 <li class="nav-button"><a href="discover.html">Discover</a></li>
                 <li class="nav-button"><a href="my-countries.html">My Countries</a></li>
+                <li class="nav-button"><a href="feedback.html">Feedback</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <section id="hero">
-            <img src="images/hero-background.webp" alt="Hero Background">
+            <picture>
+                <source srcset="images/hero-background-large.webp" media="(min-width: 64rem)">
+                <img src="images/hero-background.webp" alt="Hero Background" fetchpriority="high">
+            </picture>
             <div id="hero-cta">
-                <h1>Explore The World</h1>
+                <h1>Explore the World</h1>
                 <p>Quick access to global geographic and demographic data</p>
                 <a href="discover.html" class="link-button">Browse all countries</a>
             </div>
