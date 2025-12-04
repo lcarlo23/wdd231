@@ -1,5 +1,8 @@
 import navToggle from "./navToggle.mjs";
-import displayRandomCountry from "./random-country.mjs";
+import countries from "./apiFetch.mjs";
+import { renderRandomCountry } from "./country-manager.mjs";
+
+const countrySection = document.getElementById('random-country');
 
 navToggle();
-displayRandomCountry();
+renderRandomCountry(countries, countrySection);

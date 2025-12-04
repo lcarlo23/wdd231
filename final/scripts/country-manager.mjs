@@ -1,24 +1,7 @@
-import apiFetch from "./apiFetch.mjs";
-import { populateMyCountries } from "./saved-countries.mjs";
-
-const main = document.querySelector('main');
-const countriesGrid = document.getElementById('countries-grid');
-const countrySearch = document.getElementById('country-search');
-const regionFilter = document.getElementById('region-filter');
-const url = "https://restcountries.com/v3.1/all?fields=name,flags,population,capital,languages,currencies,region,maps";
-
 const cardLoadLimit = 15;
 let cardLoaded = 0;
 
-async function populatePage() {
-    const countries = await apiFetch(url);
-    renderCountries(countries);
-
-    countrySearch.addEventListener('input', () => filterCountries(countries));
-    regionFilter.addEventListener('input', () => filterCountries(countries));
-}
-
-function renderCountries(list) {
+function renderCountries(list, container) {
     const countriesList = list.slice(cardLoaded, cardLoaded + cardLoadLimit);
 
     if (document.getElementById('load-more')) {
@@ -47,7 +30,7 @@ function renderCountries(list) {
         card.appendChild(h2);
         card.appendChild(flag);
         card.appendChild(button);
-        countriesGrid.appendChild(card);
+        container.appendChild(card);
     }
 
     cardLoaded += cardLoadLimit;
@@ -59,23 +42,90 @@ function renderCountries(list) {
         loadMoreBtn.textContent = 'Load more';
 
         loadMoreBtn.addEventListener('click', () => {
-            renderCountries(list)
+            renderCountries(list, container)
         });
 
-        countriesGrid.appendChild(loadMoreBtn);
+        container.appendChild(loadMoreBtn);
     };
 }
 
-function filterCountries(list) {
-    const regionSearch = regionFilter.value.toLowerCase();
-    const nameSearch = countrySearch.value.toLowerCase();
+function renderRandomCountry(list, container) {
+    const h2 = document.createElement('h2');
+    const flag = document.createElement('img');
+    const infoDiv = document.createElement('ul');
+    const population = document.createElement('li');
+    const capital = document.createElement('li');
+    const currencies = document.createElement('li');
+    const currenciesList = document.createElement('ul');
+
+    const randomIndex = Math.floor(Math.random() * list.length);
+    const country = list[randomIndex];
+
+    h2.textContent = country.name.common;
+    flag.src = country.flags.svg;
+    flag.alt = country.flags.alt;
+    flag.width = 200;
+    flag.height = 100;
+    flag.classList.add('flag');
+
+    population.innerHTML = `Population: <b>${country.population.toLocaleString()}</b>`;
+    capital.innerHTML = `Capital: <b>${country.capital}</b>`;
+    currencies.textContent = 'Currencies:';
+
+    for (const currency in country.currencies) {
+        const name = country.currencies[currency].name;
+        const symbol = country.currencies[currency].symbol;
+
+        const li = document.createElement('li');
+
+        li.innerHTML = `<b>${name} (${symbol})</b>`;
+
+        currenciesList.appendChild(li);
+    }
+
+    infoDiv.appendChild(population);
+    infoDiv.appendChild(capital);
+    currencies.appendChild(currenciesList);
+    infoDiv.appendChild(currencies);
+    container.appendChild(h2);
+    container.appendChild(flag);
+    container.appendChild(infoDiv);
+}
+
+function renderSavedCountries(list, container) {
+    const savedList = getSavedCountries();
+
+    if (savedList.length === 0) {
+        displayMessage(
+            container,
+            'Add at least one country to begin using this page.<br><br>',
+            true,
+            'discover.html',
+            'GO TO DISCOVER PAGE'
+        );
+
+        return;
+    }
+
+    const filteredList = filterSavedCountries(list, savedList);
+
+    renderCountries(filteredList, container);
+}
+
+function filterSavedCountries(list, savedList) {
+    return list.filter(country => savedList.includes(country.name.common));
+}
+
+function filterCountries(list, container) {
+    const regionFilter = document.getElementById('region-filter').value.toLowerCase();
+    const nameSearch = document.getElementById('country-search').value.toLowerCase();
 
     let filteredRegion;
     let filteredCountries;
 
-    if (regionSearch !== "") {
+    if (regionFilter !== "") {
         filteredRegion = list.filter(country =>
-            country.region.toLowerCase() === regionSearch
+            country.region.toLowerCase() === regionFilter
         );
     } else {
         filteredRegion = list;
@@ -89,33 +139,31 @@ function filterCountries(list) {
         filteredCountries = filteredRegion;
     }
 
-    resetGrid();
+    resetGrid(container);
 
     if (filteredCountries.length === 0) {
-        const p = document.createElement('p');
-        p.classList.add('empty-search');
-        p.textContent = 'No results found. Try adjusting your filters or search term.';
-
-        countriesGrid.appendChild(p);
+        displayMessage(
+            container,
+            'No results found. Try adjusting your filters or search term.',
+            false
+        );
 
         return;
     }
 
-    renderCountries(filteredCountries);
+    renderCountries(filteredCountries, container);
 }
 
-function resetGrid() {
-    countriesGrid.textContent = '';
+function resetGrid(container) {
+    container.textContent = '';
     cardLoaded = 0;
 }
 
 function countryModal(e, list) {
+    const main = document.querySelector('main');
     const name = e.target.dataset.name;
-
     const country = list.find(country => country.name.common === name);
-
     const countryName = country.name.common;
-
     const modal = document.createElement('dialog');
     const h2 = document.createElement('h2');
     const flag = document.createElement('img');
@@ -191,9 +239,7 @@ function countryModal(e, list) {
                 modal.close();
                 modal.remove();
 
-                resetGrid();
-
-                populateMyCountries();
+                location.reload();
             }
         }
     })
@@ -221,12 +267,12 @@ function countryModal(e, list) {
     modal.showModal();
 }
 
-function getMyCountries() {
+function getSavedCountries() {
     return JSON.parse(localStorage.getItem('myCountries')) || [];
 }
 
 function saveCountry(name) {
-    let myCountries = getMyCountries();
+    let myCountries = getSavedCountries();
 
     if (!myCountries.includes(name)) {
         myCountries.push(name);
@@ -236,7 +282,7 @@ function saveCountry(name) {
 }
 
 function removeCountry(name) {
-    let myCountries = getMyCountries();
+    let myCountries = getSavedCountries();
 
     if (myCountries.includes(name)) {
         const index = myCountries.indexOf(name);
@@ -247,8 +293,24 @@ function removeCountry(name) {
 }
 
 function isCountrySaved(name) {
-    const myCountries = getMyCountries();
+    const myCountries = getSavedCountries();
     return myCountries.includes(name);
 }
 
-export { countriesGrid, countrySearch, regionFilter, url, populatePage, renderCountries, filterCountries, getMyCountries }
+function displayMessage(container, message, showButton = true, buttonLink = '', buttonText = '') {
+    const p = document.createElement('p');
+    p.classList.add('empty-search');
+    p.innerHTML = message;
+
+    if (showButton) {
+        const a = document.createElement('a');
+        a.href = buttonLink;
+        a.classList.add('link-button');
+        a.textContent = buttonText;
+
+        p.appendChild(a);
+    }
+    container.appendChild(p);
+}
+
+export { renderCountries, renderRandomCountry, filterCountries, renderSavedCountries, filterSavedCountries, getSavedCountries }

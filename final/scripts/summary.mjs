@@ -8,7 +8,7 @@ export default function displaySummary() {
     const container = document.getElementById('response-container');
 
     const p = document.createElement('p');
-    p.textContent = `Thank you, ${name}! We have successfully logged your ${type} report.`;
+    p.innerHTML = `Thank you, ${name}!<br>We have successfully logged your ${type} report.`;
 
     const p2 = document.createElement('p');
     p2.classList.add('summary');

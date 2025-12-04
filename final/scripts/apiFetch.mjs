@@ -1,4 +1,7 @@
-export default async function apiFetch(url) {
+const url = 'https://restcountries.com/v3.1/all?fields=name,flags,population,capital,languages,currencies,region,maps';
+const countries = await apiFetch(url);
+
+async function apiFetch(url) {
     try {
         const response = await fetch(url);
 
@@ -12,3 +15,5 @@ export default async function apiFetch(url) {
         console.log(error);
     }
 }
+
+export default countries;

@@ -1,5 +1,11 @@
 import navToggle from "./navToggle.mjs";
-import { populatePage } from "./country-manager.mjs";
+import countries from "./apiFetch.mjs";
+import { renderCountries, filterCountries } from "./country-manager.mjs";
+
+const countriesGrid = document.getElementById('countries-grid');
+const heroSearch = document.getElementById('hero-search');
 
 navToggle();
-populatePage();
+renderCountries(countries, countriesGrid);
+
+heroSearch.addEventListener('input', () => filterCountries(countries, countriesGrid));
