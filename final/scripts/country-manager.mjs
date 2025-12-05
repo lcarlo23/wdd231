@@ -186,7 +186,7 @@ function countryModal(e, list) {
     saveBtn.classList.add('link-button');
     closeBtn.classList.add('link-button');
 
-    flag.src = country.flags.svg;
+    flag.src = country.flags.png;
     flag.alt = country.flags.alt;
 
     h2.textContent = countryName;
