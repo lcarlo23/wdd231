@@ -56,17 +56,17 @@
             <h5>All fields are mandatory</h5>
             <form method="get" action="thanks.html" id="feedback-form">
                 <label for="name">Your Name</label>
-                <input type="text" name="name" required>
+                <input type="text" name="name" id="name" required autocomplete="on">
                 <label for="email">Your Email</label>
-                <input type="email" name="email" required>
+                <input type="email" name="email" id="email" required autocomplete="on">
                 <label for="type">Type of Report</label>
-                <select name="type" name="type" required>
+                <select name="type" name="type" id="type" required>
                     <option value="Bug">Bug</option>
                     <option value="Data Error">Data Error</option>
                     <option value="Suggestion">Suggestion</option>
                 </select>
                 <label for="description">Description</label>
-                <textarea name="description" name="description" required></textarea>
+                <textarea name="description" name="description" id="description" required></textarea>
                 <button type="submit" class="link-button">Send Feedback</button>
             </form>
         </section>
