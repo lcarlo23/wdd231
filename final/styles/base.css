@@ -351,3 +351,8 @@ p.summary {
     font-weight: 400;
     margin: 2rem 0;
 }
+
+.mandatory {
+    font-size: 0.85rem;
+    color: #ff0000;
+}
