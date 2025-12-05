@@ -12,7 +12,7 @@ async function apiFetch(url) {
             throw Error(await response.text());
         }
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
 }
 
